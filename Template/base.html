@@ -131,12 +131,9 @@
                 <h3>{{p.title}}</h3>
                 <p>{{p.description}}</p>
                 <div class="project-tags">
-                  <span>Python</span>
-                  <span>Html</span>
-                  <span>Django</span>
-                  <span>Postgresql</span>
-                  <span>JavaScript</span>
-                  <span>Css</span>
+                  {% for t in p.technologies.all %}
+                    <span>{{t.Technology_name}}</span>
+                  {% endfor %}
                 </div>
                 <div class="project-links">
                   <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
