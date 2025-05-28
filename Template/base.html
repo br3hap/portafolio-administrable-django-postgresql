@@ -119,6 +119,7 @@
       <section id="proyectos" class="section bg-alt">
         <div class="container">
           <h2 class="section-title">Mis Proyectos</h2>
+          {% for p in projects %}
           <div class="projects-grid">
 
             <!-- Proyecto 1 -->
@@ -127,8 +128,8 @@
                 <img src="https://via.placeholder.com/600x400" alt="Proyecto 2" />
               </div> -->
               <div class="project-info">
-                <h3>Proyecto Django - Comida Rápida</h3>
-                <p>Desarrollo con Django, Python, Postgresql, JavaScript, Html, Css</p>
+                <h3>{{p.title}}</h3>
+                <p>{{p.description}}</p>
                 <div class="project-tags">
                   <span>Python</span>
                   <span>Html</span>
@@ -145,238 +146,8 @@
               </div>
             </div>
 
-
-            <!-- Proyecto 1 -->
-            <div class="project-card">
-              <!-- <div class="project-img">
-                <img src="https://via.placeholder.com/600x400" alt="Proyecto 2" />
-              </div> -->
-              <div class="project-info">
-                <h3>Importar imágenes de manera masiva - Odoo 17</h3>
-                <p>Módulo que permite importar imágenes de manera masiva a cualquier modelo, ubicando un campo de referencia</p>
-                <div class="project-tags">
-                  <span>Python</span>
-                  <span>Xml</span>
-                  <span>Odoo v17</span>
-                  <span>Postgresql</span>
-                </div>
-                <div class="project-links">
-                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
-                  <a href="https://github.com/br3hap/modules-odoo/tree/main/mod_image_import" class="project-link" target="_blank">Ver Código</a>
-                </div>
-                <p><strong>Última actualización:</strong> 22 de mayo de 2025</p>
-              </div>
-            </div>
-
-
-            <!-- Proyecto 2 -->
-            <div class="project-card">
-              <!-- <div class="project-img">
-                <img src="https://via.placeholder.com/600x400" alt="Proyecto 2" />
-              </div> -->
-              <div class="project-info">
-                <h3>Widget de geolocalizacion, utilizando leaflet - Odoo 18</h3>
-                <p>Desarrollo de un widget de geolocalización en Odoo 18 utilizando Leaflet, 
-                  que permite visualizar y seleccionar ubicaciones en un mapa interactivo. 
-                  Integrado en formularios, 
-                  facilita la captura precisa de coordenadas GPS para contactos, entregas u otras operaciones geográficas.</p>
-                <div class="project-tags">
-                  <!-- <span>HTML</span> -->
-                  <span>CSS</span>
-                  <span>JavaScript</span>
-                  <span>Owl</span>
-                  <span>Python</span>
-                  <span>Xml</span>
-                  <span>Odoo v18</span>
-                  <span>Postgresql</span>
-                </div>
-                <div class="project-links">
-                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
-                  <a href="https://github.com/br3hap/modules-odoo/tree/main/widget_geolocation_map" class="project-link" target="_blank">Ver Código</a>
-                </div>
-                <p><strong>Última actualización:</strong> 20 de abril de 2025</p>
-              </div>
-            </div>
-
-            <!-- Proyecto 3 -->
-            <div class="project-card">
-              <!-- <div class="project-img">
-                <img src="https://via.placeholder.com/600x400" alt="Proyecto 3" />
-              </div> -->
-              <div class="project-info">
-                <h3>Widget que permite colocar la funcion de agregar linea en la parte inicial
-                    de la vista lista - Odoo 18</h3>
-                <p>Widget personalizado para vistas tipo tree en campos one2many de Odoo que posiciona el botón 
-                  "Agregar línea" al inicio de la tabla. Mejora la usabilidad cuando hay muchas líneas, 
-                  evitando que el usuario tenga que desplazarse hasta el final para añadir nuevos registros.</p>
-                <div class="project-tags">
-                  <span>CSS</span>
-                  <span>JavaScript</span>
-                  <span>Owl</span>
-                  <span>Python</span>
-                  <span>Xml</span>
-                  <span>Odoo v18</span>
-                  <span>Postgresql</span>
-                </div>
-                <div class="project-links">
-                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
-                  <a href="https://github.com/br3hap/modules-odoo/tree/main/list_add_record_start" class="project-link" target="_blank">Ver Código</a>
-                </div>
-                <p><strong>Última actualización:</strong> 6 de mayo de 2025</p>
-              </div>
-            </div>
-
-            <!-- Proyecto 4 -->
-            <div class="project-card">
-              <!-- <div class="project-img">
-                <img src="https://via.placeholder.com/600x400" alt="Proyecto 3" />
-              </div> -->
-              <div class="project-info">
-                <h3>Portafolio web profesional con diseño minimalista y elegante, creado con HTML, CSS, JavaScript, Vite y Tailwind CSS.</h3>
-                <p>Diseño limpio, moderno y responsivo, Animación de escritura tipo máquina en el nombre principal, Modo claro y oscuro con posibilidad de alternar entre ellos,
-                  Secciones principales: inicio, proyectos destacados y contacto. <span>Estás navegando en el sitio web</span>
-                </p>
-                <div class="project-tags">
-                  <span>CSS</span>
-                  <span>JavaScript</span>
-                  <span>HTML</span>
-                  <span>GitHub</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://br3hap.github.io/" class="project-link">Ver Demo</a>
-                  <a href="https://github.com/br3hap/br3hap.github.io" class="project-link" target="_blank">Ver Código</a>
-                </div>
-                <p><strong>Última actualización:</strong> 16 de mayo de 2025</p>
-              </div>
-            </div>
-
-
-            <!-- Proyecto 5 -->
-            <div class="project-card">
-              <!-- <div class="project-img">
-                <img src="https://via.placeholder.com/600x400" alt="Proyecto 3" />
-              </div> -->
-              <div class="project-info">
-                <h3>Modulo que simula un agente IA que verifica contenido del documento - Odoo 18</h3>
-                <p>Módulo para adjuntar documentos a contactos, analizar su contenido con IA y extraer información clave automáticamente.
-                </p>
-                <div class="project-tags">
-                  <span>Python</span>
-                  <span>Xml</span>
-                  <span>OpenIA</span>
-                  <span>Odoo v18</span>
-                  <span>Postgresql</span>
-                </div>
-                <div class="project-links">
-                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
-                  <a href="https://github.com/br3hap/modules-odoo/tree/main/res_partner_file_ia" class="project-link" target="_blank">Ver Código</a>
-                </div>
-                <p><strong>Última actualización:</strong> 10 de mayo de 2025</p>
-              </div>
-            </div>
-
-            <!-- Proyecto 1 -->
-            <div class="project-card">
-              <!-- <div class="project-img">
-                <img src="https://via.placeholder.com/600x400" alt="Proyecto 1" />
-              </div> -->
-              <div class="project-info">
-                <h3>Proyecto Compra y Facturación en Django</h3>
-                <p>Proyecto de Compra y Facturación desarrollado en Django 2.2 que permite gestionar proveedores, 
-                  órdenes de compra y facturas. 
-                  Automatiza el proceso de registro y control de compras, 
-                  facilitando el seguimiento de pagos y estados de facturación. 
-                  Ideal para pequeñas y medianas empresas que buscan eficiencia en su gestión administrativa.</p>
-                <div class="project-tags">
-                  <span>HTML</span>
-                  <span>CSS</span>
-                  <span>JavaScript</span>
-                  <span>Python</span>
-                  <span>Django</span>
-                  <span>Postgresql</span>
-                </div>
-                <div class="project-links">
-                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
-                  <a href="https://github.com/br3hap/Compra-y-Facturacion" class="project-link" target="_blank">Ver Código</a>
-                </div>
-                <p><strong>Última actualización:</strong> 13 de enero de 2021</p>
-              </div>
-            </div>
-
-            <!-- Proyecto 6 -->
-            <div class="project-card">
-              <!-- <div class="project-img">
-                <img src="https://via.placeholder.com/600x400" alt="Proyecto 1" />
-              </div> -->
-              <div class="project-info">
-                <h3>Modulo que permite realizar las conciliaciones bancarias de manera masiva por csv - odoo 16</h3>
-                <p>Permitir a los usuarios de Odoo realizar conciliaciones y desconciliaciones bancarias de forma masiva, 
-                    cargando un archivo CSV con la información de los extractos bancarios y las facturas o apuntes contables asociados. 
-                    Esto agiliza el proceso contable y evita la gestión manual línea por línea.</p>
-                <div class="project-tags">
-                  <span>Xml</span>
-                  <span>Python</span>
-                  <span>Odoo v16</span>
-                  <span>Postgresql</span>
-                </div>
-                <div class="project-links">
-                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
-                  <a href="https://github.com/br3hap/modules-odoo/tree/main/conciliar_extractos_bancarios" class="project-link" target="_blank">Ver Código</a>
-                </div>
-                <p><strong>Última actualización:</strong> 13 de mayo de 2025</p>
-              </div>
-            </div>
-
-            <!-- Proyecto 7 -->
-            <div class="project-card">
-              <!-- <div class="project-img">
-                <img src="https://via.placeholder.com/600x400" alt="Proyecto 1" />
-              </div> -->
-              <div class="project-info">
-                <h3>Página Web para la empresa AirFire Ingenieros</h3>
-                <p>Diseño limpio, moderno y responsivo, Modo claro y oscuro con posibilidad de alternar entre ellos,
-                  Secciones principales: inicio, Nosotros, contacto.</p>
-                <div class="project-tags">
-                  <span>Html</span>
-                  <span>JavaScript</span>
-                  <span>Css</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://airfireingenieros.com/" class="project-link" target="_blank">Ver Demo</a>
-                  <a href="https://github.com/br3hap/airfire-ingenieros-web" class="project-link" target="_blank">Ver Código</a>
-                </div>
-                <p><strong>Última actualización:</strong> 16 de mayo de 2025</p>
-              </div>
-            </div>
-
-            <!-- Proyecto 8 -->
-            <div class="project-card">
-              <!-- <div class="project-img">
-                <img src="src/docs/img/ia.png" alt="Proyecto 1" />
-              </div> -->
-              <div class="project-info">
-                <h3>Asistente IA conectado con n8n</h3>
-                <p>Aplicación web con una interfaz conversacional limpia, moderna y profesional, inspirada en ChatGPT. 
-                  La aplicación permite al usuario interactuar a través de una caja de texto y, al enviar un mensaje, 
-                  los datos se envían vía POST a un webhook de n8n. 
-                  Luego, el sistema muestra en tiempo real la respuesta generada por la IA de forma estructurada y clara. 
-                  Está optimizada tanto para modo claro como oscuro, y diseñada con los principios de UX/UI.</p>
-                <div class="project-tags">
-                  <span>Vite</span>
-                  <span>TypeScript</span>
-                  <span>shadcn-ui</span>
-                  <span>React</span>
-                  <span>Tailwind CSS</span>
-                  <span>Lovable</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/br3hap/chatflow-ai-assistant" class="project-link" target="_blank">Ver Código</a>
-                </div>
-                <p><strong>Última actualización:</strong> 19 de mayo de 2025</p>
-              </div>
-            </div>
-
           </div>
+          {% endfor %}
         </div>
       </section>
 

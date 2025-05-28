@@ -32,7 +32,7 @@ class TechnologiesList(models.Model):
 class Project(models.Model):
     title = models.CharField()
     description = models.TextField()
-    technologies = models.ManyToManyField(TechnologiesList)
+    technologies = models.ManyToManyField(TechnologiesList, related_name='projects')
     end_update = models.DateField()
     view_code = models.CharField()
 

@@ -6,7 +6,8 @@ from Base_App.models import *
 
 def HomeView(request):
     person = Person.objects.all()
-    return render(request, 'home.html', {'person': person})
+    projects = Project.objects.all()
+    return render(request, 'home.html', {'person': person, 'projects': projects})
 
 
 def FormTableView(request):
@@ -20,4 +21,5 @@ def FormTableView(request):
 
         data.save()
         person = Person.objects.all()
-        return render(request, 'home.html', {'person': person})
+        projects = Project.objects.all()
+        return render(request, 'home.html', {'person': person, 'projects': projects})
