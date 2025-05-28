@@ -119,14 +119,10 @@
       <section id="proyectos" class="section bg-alt">
         <div class="container">
           <h2 class="section-title">Mis Proyectos</h2>
-          {% for p in projects %}
+          
           <div class="projects-grid">
-
-            <!-- Proyecto 1 -->
+            {% for p in projects %}
             <div class="project-card">
-              <!-- <div class="project-img">
-                <img src="https://via.placeholder.com/600x400" alt="Proyecto 2" />
-              </div> -->
               <div class="project-info">
                 <h3>{{p.title}}</h3>
                 <p>{{p.description}}</p>
@@ -136,15 +132,15 @@
                   {% endfor %}
                 </div>
                 <div class="project-links">
-                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
-                  <a href="https://github.com/br3hap/Django5-Doc" class="project-link" target="_blank">Ver Código</a>
+                  <a href="{{p.view_code}}" class="project-link" target="_blank">Ver Código</a>
                 </div>
-                <p><strong>Última actualización:</strong> 27 de mayo de 2025</p>
+                <p><strong>Última actualización:</strong> {{p.end_update|date:"j \d\e F \d\e Y"}}</p>
               </div>
             </div>
+            {% endfor %}
 
           </div>
-          {% endfor %}
+          
         </div>
       </section>
 
