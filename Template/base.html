@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Portafolio</title>
+    <link rel="icon" href="{% static 'img/img.png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <meta name="description" content="Portafolio profesional" />
+    <meta name="author" content="Breithner Aquituari" />
+  </head>
+
+  <body {% block class %}{% endblock class %}>
+    <div id="root">
+      <!-- Theme Toggle Button -->
+      <div class="theme-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </div>
+
+      <!-- Header y Navegación -->
+      <header class="header">
+        <div class="container">
+          <div class="logo">
+            <a href="#inicio">Portafolio</a>
+          </div>
+          <nav class="nav-menu">
+            <div class="menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <ul class="menu">
+              <li><a href="#inicio" class="active">Inicio</a></li>
+              <li><a href="#sobre-mi">Sobre mí</a></li>
+              <li><a href="#proyectos">Proyectos</a></li>
+              <li><a href="#habilidades">Habilidades</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Sección de Inicio -->
+      <section id="inicio" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="animate-fade-in">
+              <span class="typing-text">Hola, soy <span class="highlight">Breithner Aquituari</span></span>
+            </h1>
+            <h2 class="animate-fade-in delay-1">
+              <span class="backend-highlight">Desarrollador Backend</span>
+            </h2>
+            <p class="animate-fade-in delay-2">
+              Desarrollo soluciones backend robustas y escalables, enfocadas en rendimiento y calidad del código.
+              Apasionado por el detalle, la lógica de negocio y la integración eficiente de sistemas.
+            </p>
+            <div class="hero-buttons animate-fade-in delay-3">
+              <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+              <a href="#contacto" class="btn btn-outline">Contacto</a>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-down">
+          <a href="#sobre-mi">
+            <span class="arrow"></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Sección Sobre Mí -->
+      <section id="sobre-mi" class="section">
+        {% for p in person %}
+        <div class="container">
+          <h2 class="section-title">Sobre Mí</h2>
+          <div class="about-content">
+            <div class="about-image">
+              <div class="image-container">
+                <!-- Imagen de perfil -->
+                <img src="{% static 'img/img.png' %}" alt="Foto de perfil" class="perfil-img"/>
+              </div>
+            </div>
+            <div class="about-text">
+              <p>
+              {{p.about_me_one}}
+              </p>
+              <p>
+              {{p.about_me_two}}
+              </p>
+              <div class="about-details">
+                <div class="detail-item">
+                  <span class="detail-title">Nombre:</span>
+                  <span class="detail-info">{{p.name_person}}</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-title">Email:</span>
+                  <span class="detail-info">{{p.email}}</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-title">Ubicación:</span>
+                  <span class="detail-info">{{p.location}}</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-title">Disponible:</span>
+                  <span class="detail-info available">{{p.available}}</span>
+                </div>
+              </div>
+              <!-- <a href="src/docs/cv.pdf" class="btn btn-primary" target="_blank" download>Descargar CV</a> -->
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </section>
+
+      <!-- Sección de Proyectos -->
+      <section id="proyectos" class="section bg-alt">
+        <div class="container">
+          <h2 class="section-title">Mis Proyectos</h2>
+          <div class="projects-grid">
+
+            <!-- Proyecto 1 -->
+            <div class="project-card">
+              <!-- <div class="project-img">
+                <img src="https://via.placeholder.com/600x400" alt="Proyecto 2" />
+              </div> -->
+              <div class="project-info">
+                <h3>Proyecto Django - Comida Rápida</h3>
+                <p>Desarrollo con Django, Python, Postgresql, JavaScript, Html, Css</p>
+                <div class="project-tags">
+                  <span>Python</span>
+                  <span>Html</span>
+                  <span>Django</span>
+                  <span>Postgresql</span>
+                  <span>JavaScript</span>
+                  <span>Css</span>
+                </div>
+                <div class="project-links">
+                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
+                  <a href="https://github.com/br3hap/Django5-Doc" class="project-link" target="_blank">Ver Código</a>
+                </div>
+                <p><strong>Última actualización:</strong> 27 de mayo de 2025</p>
+              </div>
+            </div>
+
+
+            <!-- Proyecto 1 -->
+            <div class="project-card">
+              <!-- <div class="project-img">
+                <img src="https://via.placeholder.com/600x400" alt="Proyecto 2" />
+              </div> -->
+              <div class="project-info">
+                <h3>Importar imágenes de manera masiva - Odoo 17</h3>
+                <p>Módulo que permite importar imágenes de manera masiva a cualquier modelo, ubicando un campo de referencia</p>
+                <div class="project-tags">
+                  <span>Python</span>
+                  <span>Xml</span>
+                  <span>Odoo v17</span>
+                  <span>Postgresql</span>
+                </div>
+                <div class="project-links">
+                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
+                  <a href="https://github.com/br3hap/modules-odoo/tree/main/mod_image_import" class="project-link" target="_blank">Ver Código</a>
+                </div>
+                <p><strong>Última actualización:</strong> 22 de mayo de 2025</p>
+              </div>
+            </div>
+
+
+            <!-- Proyecto 2 -->
+            <div class="project-card">
+              <!-- <div class="project-img">
+                <img src="https://via.placeholder.com/600x400" alt="Proyecto 2" />
+              </div> -->
+              <div class="project-info">
+                <h3>Widget de geolocalizacion, utilizando leaflet - Odoo 18</h3>
+                <p>Desarrollo de un widget de geolocalización en Odoo 18 utilizando Leaflet, 
+                  que permite visualizar y seleccionar ubicaciones en un mapa interactivo. 
+                  Integrado en formularios, 
+                  facilita la captura precisa de coordenadas GPS para contactos, entregas u otras operaciones geográficas.</p>
+                <div class="project-tags">
+                  <!-- <span>HTML</span> -->
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Owl</span>
+                  <span>Python</span>
+                  <span>Xml</span>
+                  <span>Odoo v18</span>
+                  <span>Postgresql</span>
+                </div>
+                <div class="project-links">
+                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
+                  <a href="https://github.com/br3hap/modules-odoo/tree/main/widget_geolocation_map" class="project-link" target="_blank">Ver Código</a>
+                </div>
+                <p><strong>Última actualización:</strong> 20 de abril de 2025</p>
+              </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="project-card">
+              <!-- <div class="project-img">
+                <img src="https://via.placeholder.com/600x400" alt="Proyecto 3" />
+              </div> -->
+              <div class="project-info">
+                <h3>Widget que permite colocar la funcion de agregar linea en la parte inicial
+                    de la vista lista - Odoo 18</h3>
+                <p>Widget personalizado para vistas tipo tree en campos one2many de Odoo que posiciona el botón 
+                  "Agregar línea" al inicio de la tabla. Mejora la usabilidad cuando hay muchas líneas, 
+                  evitando que el usuario tenga que desplazarse hasta el final para añadir nuevos registros.</p>
+                <div class="project-tags">
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Owl</span>
+                  <span>Python</span>
+                  <span>Xml</span>
+                  <span>Odoo v18</span>
+                  <span>Postgresql</span>
+                </div>
+                <div class="project-links">
+                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
+                  <a href="https://github.com/br3hap/modules-odoo/tree/main/list_add_record_start" class="project-link" target="_blank">Ver Código</a>
+                </div>
+                <p><strong>Última actualización:</strong> 6 de mayo de 2025</p>
+              </div>
+            </div>
+
+            <!-- Proyecto 4 -->
+            <div class="project-card">
+              <!-- <div class="project-img">
+                <img src="https://via.placeholder.com/600x400" alt="Proyecto 3" />
+              </div> -->
+              <div class="project-info">
+                <h3>Portafolio web profesional con diseño minimalista y elegante, creado con HTML, CSS, JavaScript, Vite y Tailwind CSS.</h3>
+                <p>Diseño limpio, moderno y responsivo, Animación de escritura tipo máquina en el nombre principal, Modo claro y oscuro con posibilidad de alternar entre ellos,
+                  Secciones principales: inicio, proyectos destacados y contacto. <span>Estás navegando en el sitio web</span>
+                </p>
+                <div class="project-tags">
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>HTML</span>
+                  <span>GitHub</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://br3hap.github.io/" class="project-link">Ver Demo</a>
+                  <a href="https://github.com/br3hap/br3hap.github.io" class="project-link" target="_blank">Ver Código</a>
+                </div>
+                <p><strong>Última actualización:</strong> 16 de mayo de 2025</p>
+              </div>
+            </div>
+
+
+            <!-- Proyecto 5 -->
+            <div class="project-card">
+              <!-- <div class="project-img">
+                <img src="https://via.placeholder.com/600x400" alt="Proyecto 3" />
+              </div> -->
+              <div class="project-info">
+                <h3>Modulo que simula un agente IA que verifica contenido del documento - Odoo 18</h3>
+                <p>Módulo para adjuntar documentos a contactos, analizar su contenido con IA y extraer información clave automáticamente.
+                </p>
+                <div class="project-tags">
+                  <span>Python</span>
+                  <span>Xml</span>
+                  <span>OpenIA</span>
+                  <span>Odoo v18</span>
+                  <span>Postgresql</span>
+                </div>
+                <div class="project-links">
+                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
+                  <a href="https://github.com/br3hap/modules-odoo/tree/main/res_partner_file_ia" class="project-link" target="_blank">Ver Código</a>
+                </div>
+                <p><strong>Última actualización:</strong> 10 de mayo de 2025</p>
+              </div>
+            </div>
+
+            <!-- Proyecto 1 -->
+            <div class="project-card">
+              <!-- <div class="project-img">
+                <img src="https://via.placeholder.com/600x400" alt="Proyecto 1" />
+              </div> -->
+              <div class="project-info">
+                <h3>Proyecto Compra y Facturación en Django</h3>
+                <p>Proyecto de Compra y Facturación desarrollado en Django 2.2 que permite gestionar proveedores, 
+                  órdenes de compra y facturas. 
+                  Automatiza el proceso de registro y control de compras, 
+                  facilitando el seguimiento de pagos y estados de facturación. 
+                  Ideal para pequeñas y medianas empresas que buscan eficiencia en su gestión administrativa.</p>
+                <div class="project-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Python</span>
+                  <span>Django</span>
+                  <span>Postgresql</span>
+                </div>
+                <div class="project-links">
+                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
+                  <a href="https://github.com/br3hap/Compra-y-Facturacion" class="project-link" target="_blank">Ver Código</a>
+                </div>
+                <p><strong>Última actualización:</strong> 13 de enero de 2021</p>
+              </div>
+            </div>
+
+            <!-- Proyecto 6 -->
+            <div class="project-card">
+              <!-- <div class="project-img">
+                <img src="https://via.placeholder.com/600x400" alt="Proyecto 1" />
+              </div> -->
+              <div class="project-info">
+                <h3>Modulo que permite realizar las conciliaciones bancarias de manera masiva por csv - odoo 16</h3>
+                <p>Permitir a los usuarios de Odoo realizar conciliaciones y desconciliaciones bancarias de forma masiva, 
+                    cargando un archivo CSV con la información de los extractos bancarios y las facturas o apuntes contables asociados. 
+                    Esto agiliza el proceso contable y evita la gestión manual línea por línea.</p>
+                <div class="project-tags">
+                  <span>Xml</span>
+                  <span>Python</span>
+                  <span>Odoo v16</span>
+                  <span>Postgresql</span>
+                </div>
+                <div class="project-links">
+                  <!-- <a href="#" class="project-link" target="_blank">Ver Demo</a> -->
+                  <a href="https://github.com/br3hap/modules-odoo/tree/main/conciliar_extractos_bancarios" class="project-link" target="_blank">Ver Código</a>
+                </div>
+                <p><strong>Última actualización:</strong> 13 de mayo de 2025</p>
+              </div>
+            </div>
+
+            <!-- Proyecto 7 -->
+            <div class="project-card">
+              <!-- <div class="project-img">
+                <img src="https://via.placeholder.com/600x400" alt="Proyecto 1" />
+              </div> -->
+              <div class="project-info">
+                <h3>Página Web para la empresa AirFire Ingenieros</h3>
+                <p>Diseño limpio, moderno y responsivo, Modo claro y oscuro con posibilidad de alternar entre ellos,
+                  Secciones principales: inicio, Nosotros, contacto.</p>
+                <div class="project-tags">
+                  <span>Html</span>
+                  <span>JavaScript</span>
+                  <span>Css</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://airfireingenieros.com/" class="project-link" target="_blank">Ver Demo</a>
+                  <a href="https://github.com/br3hap/airfire-ingenieros-web" class="project-link" target="_blank">Ver Código</a>
+                </div>
+                <p><strong>Última actualización:</strong> 16 de mayo de 2025</p>
+              </div>
+            </div>
+
+            <!-- Proyecto 8 -->
+            <div class="project-card">
+              <!-- <div class="project-img">
+                <img src="src/docs/img/ia.png" alt="Proyecto 1" />
+              </div> -->
+              <div class="project-info">
+                <h3>Asistente IA conectado con n8n</h3>
+                <p>Aplicación web con una interfaz conversacional limpia, moderna y profesional, inspirada en ChatGPT. 
+                  La aplicación permite al usuario interactuar a través de una caja de texto y, al enviar un mensaje, 
+                  los datos se envían vía POST a un webhook de n8n. 
+                  Luego, el sistema muestra en tiempo real la respuesta generada por la IA de forma estructurada y clara. 
+                  Está optimizada tanto para modo claro como oscuro, y diseñada con los principios de UX/UI.</p>
+                <div class="project-tags">
+                  <span>Vite</span>
+                  <span>TypeScript</span>
+                  <span>shadcn-ui</span>
+                  <span>React</span>
+                  <span>Tailwind CSS</span>
+                  <span>Lovable</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/br3hap/chatflow-ai-assistant" class="project-link" target="_blank">Ver Código</a>
+                </div>
+                <p><strong>Última actualización:</strong> 19 de mayo de 2025</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección de Habilidades -->
+      <section id="habilidades" class="section">
+        <div class="container">
+          <h2 class="section-title">Mis Habilidades</h2>
+          <div class="skills-container">
+            <div class="skills-category">
+              <h3>Desarrollo Backend</h3>
+              <div class="skills-list">
+                <div class="skill-item">
+                  <span class="skill-name">Python</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 95%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Odoo</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">JavaScript</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 60%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Owl</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 60%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Django</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">React Native</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 95%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <h3>Herramientas y Otros</h3>
+              <div class="skills-list">
+                <div class="skill-item">
+                  <span class="skill-name">GitHub</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Figma</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 75%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">n8n</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 70%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Jenkins</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 60%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Power BI</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 70%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Make</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 70%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Docker</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 70%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Postgresql</span>
+                  <div class="skill-bar">
+                    <div class="skill-level" style="width: 70%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección de Contacto -->
+      <section id="contacto" class="section bg-alt">
+        <div class="container">
+          <h2 class="section-title">Contacto</h2>
+          <div class="contact-container">
+            <div class="contact-info">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-text">
+                  <h3>Email</h3>
+                  <p>breithnerap@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="contact-text">
+                  <h3>Ubicación</h3>
+                  <p>Lima, Perú</p>
+                </div>
+              </div>
+              <!-- <div class="contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div class="contact-text">
+                  <h3>Teléfono</h3>
+                  <p>+XX XXX XXX XXXX</p>
+                </div>
+              </div> -->
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/breithner-aquituari-249b821a4/" target="_blank" class="social-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+                <a href="https://github.com/br3hap" target="_blank" class="social-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                </a>
+                <!-- <a href="#" target="_blank" class="social-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                  </svg>
+                </a> -->
+              </div>
+            </div>
+            <div class="contact-form">
+              <form id="contact-form" action="{% url "Form_Table" %}" method='POST'>{% csrf_token %}
+                <div class="form-group">
+                  <input type="text" id="name" name="name" placeholder="Tu Nombre" required />
+                </div>
+                <div class="form-group">
+                  <input type="email" id="email" name="email" placeholder="Tu Email" required />
+                </div>
+                <div class="form-group">
+                  <input type="text" id="subject" name="subject" placeholder="Asunto" required />
+                </div>
+                <div class="form-group">
+                  <textarea id="message" name="message" placeholder="Mensaje" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% block footer %}{% endblock footer %}
+    </div>
+    
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
