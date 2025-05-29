@@ -5,22 +5,23 @@
     <!-- Sección de Inicio -->
     <section id="inicio" class="hero">
       <div class="container">
+        {% for p in person %}
         <div class="hero-content">
           <h1 class="animate-fade-in">
-            <span class="typing-text">Hola, soy <span class="highlight">Breithner Aquituari</span></span>
+            <span class="typing-text">Hola, soy <span class="highlight">{{p.name_person}}</span></span>
           </h1>
           <h2 class="animate-fade-in delay-1">
-            <span class="backend-highlight">Desarrollador Backend</span>
+            <span class="backend-highlight">{{p.profession}}</span>
           </h2>
           <p class="animate-fade-in delay-2">
-            Desarrollo soluciones backend robustas y escalables, enfocadas en rendimiento y calidad del código.
-            Apasionado por el detalle, la lógica de negocio y la integración eficiente de sistemas.
+              {{p.about_me_three}}
           </p>
           <div class="hero-buttons animate-fade-in delay-3">
             <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
             <a href="#contacto" class="btn btn-outline">Contacto</a>
           </div>
         </div>
+        {% endfor %}
       </div>
       <div class="scroll-down">
         <a href="#sobre-mi">

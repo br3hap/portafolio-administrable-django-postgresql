@@ -7,4 +7,7 @@ admin.site.register(Form)
 admin.site.register(TechnologiesList)
 admin.site.register(Project)
 admin.site.register(Page)
+admin.site.register(Skill)
+admin.site.register(BackendList)
+admin.site.register(ToolList)
 

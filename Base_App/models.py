@@ -1,6 +1,23 @@
 from django.db import models
 
 # Create your models here.
+class BackendList(models.Model):
+    skill_name = models.CharField(max_length=16)
+
+    def __str__(self):
+        return self.skill_name
+    
+class ToolList(models.Model):
+    Tool_name = models.CharField(max_length=16)
+
+    def __str__(self):
+        return self.Tool_name
+
+class Skill(models.Model):
+    skill_backend = models.ManyToManyField(BackendList, related_name='skills_skill')
+    tool_backend = models.ManyToManyField(ToolList, related_name='skills_tool')
+
+
 
 class Person(models.Model):
     name_person = models.CharField(max_length=100)
@@ -9,6 +26,9 @@ class Person(models.Model):
     available = models.CharField(max_length=40)
     about_me_one = models.TextField()
     about_me_two = models.TextField()
+    about_me_three = models.TextField()
+    profession = models.CharField(default='Desarrollador Backend')
+    # skill_id = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name='people')
 
     def __str__(self):
         return self.name_person
