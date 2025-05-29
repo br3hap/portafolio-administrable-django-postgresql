@@ -38,6 +38,16 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Page(models.Model):
+    title = models.CharField()
+    description = models.CharField()
+    author = models.CharField()
+    name = models.CharField()
+    anio = models.DateField()
+    rights_reserved = models.CharField()
+    
 
 
 
