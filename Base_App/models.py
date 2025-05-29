@@ -3,12 +3,14 @@ from django.db import models
 # Create your models here.
 class BackendList(models.Model):
     skill_name = models.CharField(max_length=16)
+    percentage = models.IntegerField(default=0)
 
     def __str__(self):
         return self.skill_name
     
 class ToolList(models.Model):
     Tool_name = models.CharField(max_length=16)
+    percentage = models.IntegerField(default=0)
 
     def __str__(self):
         return self.Tool_name
