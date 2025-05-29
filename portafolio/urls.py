@@ -20,6 +20,6 @@ from Base_App.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView),
+    path('', HomeView, name='Home'),
     path('form_table', FormTableView, name='Form_Table'),
 ]
