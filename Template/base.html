@@ -2,17 +2,18 @@
 <!DOCTYPE html>
 <html lang="es">
 {% load static %}
+  {% for pg in page %}
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi Portafolio</title>
+    <title>{{pg.title}}</title>
     <link rel="icon" href="{% static 'img/img.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <meta name="description" content="Portafolio profesional" />
-    <meta name="author" content="Breithner Aquituari" />
+    <meta name="description" content={{pg.description}}/>
+    <meta name="author" content={{pg.author}} />
   </head>
 
-  <body {% block class %}{% endblock class %}>
+  <body>
     <div id="root">
       <!-- Theme Toggle Button -->
       <div class="theme-toggle">
@@ -25,7 +26,7 @@
       <header class="header">
         <div class="container">
           <div class="logo">
-            <a href="#inicio">Portafolio</a>
+            <a href="#inicio">{{pg.name}}</a>
           </div>
           <nav class="nav-menu">
             <div class="menu-toggle">
@@ -60,4 +61,5 @@
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script src="{% static 'js/script.js' %}"></script>
   </body>
+  {% endfor %}
 </html>
