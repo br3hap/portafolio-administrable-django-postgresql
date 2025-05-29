@@ -35,6 +35,7 @@ class Person(models.Model):
     about_me_three = models.TextField()
     profession = models.CharField(default='Desarrollador Backend')
     skill_id = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name='people')
+    image = models.ImageField(upload_to='img/', blank=True)
 
     def __str__(self):
         return self.name_person
