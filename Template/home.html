@@ -111,104 +111,39 @@
       <!-- Sección de Habilidades -->
       <section id="habilidades" class="section">
         <div class="container">
+          {% for p in person %}
           <h2 class="section-title">Mis Habilidades</h2>
           <div class="skills-container">
             <div class="skills-category">
               <h3>Desarrollo Backend</h3>
               <div class="skills-list">
-                <div class="skill-item">
-                  <span class="skill-name">Python</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 95%"></div>
+                {% for b in p.skill_id.skill_backend.all %}
+                  <div class="skill-item">
+                    <span class="skill-name">{{b.skill_name}}</span>
+                    <div class="skill-bar">
+                      <div class="skill-level" style="width: 95%"></div>
+                    </div>
                   </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">Odoo</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 90%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">JavaScript</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 60%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">Owl</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 60%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">Django</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 80%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">React Native</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 95%"></div>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
 
             <div class="skills-category">
               <h3>Herramientas y Otros</h3>
               <div class="skills-list">
-                <div class="skill-item">
-                  <span class="skill-name">GitHub</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 80%"></div>
+                {% for t in p.skill_id.tool_backend.all %}
+                  <div class="skill-item">
+                    <span class="skill-name">{{t.Tool_name}}</span>
+                    <div class="skill-bar">
+                      <div class="skill-level" style="width: 80%"></div>
+                    </div>
                   </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">Figma</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 75%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">n8n</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 70%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">Jenkins</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 60%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">Power BI</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 70%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">Make</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 70%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">Docker</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 70%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-name">Postgresql</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" style="width: 70%"></div>
-                  </div>
-                </div>
+                {% endfor %}
+
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
       </section>
 {% endblock skills %}

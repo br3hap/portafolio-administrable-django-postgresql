@@ -14,8 +14,12 @@ class ToolList(models.Model):
         return self.Tool_name
 
 class Skill(models.Model):
+    name = models.CharField(default="Skill")
     skill_backend = models.ManyToManyField(BackendList, related_name='skills_skill')
     tool_backend = models.ManyToManyField(ToolList, related_name='skills_tool')
+
+    def __str__(self):
+        return self.name
 
 
 
@@ -28,7 +32,7 @@ class Person(models.Model):
     about_me_two = models.TextField()
     about_me_three = models.TextField()
     profession = models.CharField(default='Desarrollador Backend')
-    # skill_id = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name='people')
+    skill_id = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name='people')
 
     def __str__(self):
         return self.name_person
