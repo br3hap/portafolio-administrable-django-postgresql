@@ -1,4 +1,112 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block inicio %} 
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="animate-fade-in">
+            <span class="typing-text">Hola, soy <span class="highlight">Breithner Aquituari</span></span>
+          </h1>
+          <h2 class="animate-fade-in delay-1">
+            <span class="backend-highlight">Desarrollador Backend</span>
+          </h2>
+          <p class="animate-fade-in delay-2">
+            Desarrollo soluciones backend robustas y escalables, enfocadas en rendimiento y calidad del código.
+            Apasionado por el detalle, la lógica de negocio y la integración eficiente de sistemas.
+          </p>
+          <div class="hero-buttons animate-fade-in delay-3">
+            <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+            <a href="#contacto" class="btn btn-outline">Contacto</a>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-down">
+        <a href="#sobre-mi">
+          <span class="arrow"></span>
+        </a>
+      </div>
+    </section>
+{% endblock inicio %} 
+
+{% block about %}     
+<!-- Sección Sobre Mí -->
+    <section id="sobre-mi" class="section">
+      {% for p in person %}
+      <div class="container">
+        <h2 class="section-title">Sobre Mí</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <div class="image-container">
+              <!-- Imagen de perfil -->
+              <img src="{% static 'img/img.png' %}" alt="Foto de perfil" class="perfil-img"/>
+            </div>
+          </div>
+          <div class="about-text">
+            <p>
+            {{p.about_me_one}}
+            </p>
+            <p>
+            {{p.about_me_two}}
+            </p>
+            <div class="about-details">
+              <div class="detail-item">
+                <span class="detail-title">Nombre:</span>
+                <span class="detail-info">{{p.name_person}}</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-title">Email:</span>
+                <span class="detail-info">{{p.email}}</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-title">Ubicación:</span>
+                <span class="detail-info">{{p.location}}</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-title">Disponible:</span>
+                <span class="detail-info available">{{p.available}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+{% endblock about %}
+
+{% block projects %}
+  <!-- Sección de Proyectos -->
+  <section id="proyectos" class="section bg-alt">
+    <div class="container">
+      <h2 class="section-title">Mis Proyectos</h2>
+      
+      <div class="projects-grid">
+        {% for p in projects %}
+        <div class="project-card">
+          <div class="project-info">
+            <h3>{{p.title}}</h3>
+            <p>{{p.description}}</p>
+            <div class="project-tags">
+              {% for t in p.technologies.all %}
+                <span>{{t.Technology_name}}</span>
+              {% endfor %}
+            </div>
+            <div class="project-links">
+              <a href="{{p.view_code}}" class="project-link" target="_blank">Ver Código</a>
+            </div>
+            <p><strong>Última actualización:</strong> {{p.end_update|date:"j \d\e F \d\e Y"}}</p>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+      
+    </div>
+  </section>
+{% endblock projects %}
+
+{% comment %} footer {% endcomment %}
 {% block footer %}
       <footer class="footer">
         <div class="container">
