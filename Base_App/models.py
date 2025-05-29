@@ -47,6 +47,9 @@ class Page(models.Model):
     name = models.CharField()
     anio = models.DateField()
     rights_reserved = models.CharField()
+
+    def __str__(self):
+        return self.name
     
 
 

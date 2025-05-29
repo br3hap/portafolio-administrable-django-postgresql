@@ -6,4 +6,5 @@ admin.site.register(Person)
 admin.site.register(Form)
 admin.site.register(TechnologiesList)
 admin.site.register(Project)
+admin.site.register(Page)
 
