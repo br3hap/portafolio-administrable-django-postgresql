@@ -121,7 +121,7 @@
                   <div class="skill-item">
                     <span class="skill-name">{{b.skill_name}}</span>
                     <div class="skill-bar">
-                      <div class="skill-level" style="width: 95%"></div>
+                      <div class="skill-level" style="width: {{b.percentage}}%"></div>
                     </div>
                   </div>
                 {% endfor %}
@@ -135,7 +135,7 @@
                   <div class="skill-item">
                     <span class="skill-name">{{t.Tool_name}}</span>
                     <div class="skill-bar">
-                      <div class="skill-level" style="width: 80%"></div>
+                      <div class="skill-level" style="width: {{t.percentage}}%"></div>
                     </div>
                   </div>
                 {% endfor %}
